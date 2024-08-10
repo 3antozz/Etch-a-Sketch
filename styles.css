@@ -1,14 +1,25 @@
 body {
-    padding: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: beige;
     margin: 0;
+    padding: 0;
     align-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
     
+}
+.main {
+    display: flex;
+    user-select: none;
 }
 
  .grid-container { 
+    user-select: none;
+    background-color: white;
     margin: 0;
     padding: 0;
-    background-color: red;
     width: 500px;
     max-width: 500px;
     height: 500px;
@@ -16,5 +27,21 @@ body {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    margin:auto;
+    margin: 0 auto;
 } 
+
+.header {
+    line-height: 1;
+    padding: 0;
+    color: purple;
+    font-size: 52px;
+    margin: 0 auto;
+    font-weight: bolder;
+}
+
+.footer {
+    color: purple;
+    font-size: 24px;
+    margin: 0 auto;
+    font-weight: bold;
+}
