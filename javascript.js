@@ -9,8 +9,8 @@ let gridContainer;
 
 
 
-createGrid(32);
-buttonsEventsHandler();
+createGrid(64);
+changeGrid();
 function createGrid (number) {
     gridContainer = document.createElement("div");
     gridContainer.setAttribute("style", "border-style: solid; border-color: black; border-width: 2px; user-select: none; background-color: white; padding: 1px; width: 500px; max-width: 500px; height: 500px; max-height: 500px; display: flex; flex-direction: column")
@@ -21,10 +21,12 @@ function createGrid (number) {
         for (let i=1; i <= number; i++){
             let newSquare = document.createElement("span");
             newSquare.setAttribute("style", "box-sizing: border-box; display: flex; flex: 1 1 auto; border-color: black; border-style: solid; border-width: 0.1px; border-color: #eeeeee");
+            newSquare.classList.add("square");
             mainDiv.appendChild(gridContainer);
             rowDiv.appendChild(newSquare);
             gridContainer.appendChild(rowDiv);
             handleMouseEvents(newSquare);
+            buttonsEventsHandler(newSquare);
         }
     };
 }
@@ -50,28 +52,47 @@ function handleMouseEvents(element) {
     })
 }
 
-function buttonsEventsHandler () {
+function changeGrid () {
+    changeGridButton.addEventListener("click", (e) => {
+        let squareNumber = +prompt("how many squares on each side? MAX = 80");
+        if (squareNumber > 80) {
+            alert ("Please enter a positive number under 80");
+        }
+        else if (squareNumber === null || squareNumber <= 0 || squareNumber != squareNumber){
+            alert ("Please enter a positive number under 80");
+            mainDiv.removeChild(gridContainer);
+            createGrid(32);
+        }
+        else if (1 <= squareNumber <= 80) {
+            mainDiv.removeChild(gridContainer);
+            createGrid(squareNumber);
+        }
+})
+}
+
+
+function buttonsEventsHandler (square) {
+    let gridToggle = true;
     buttonsWrapper.addEventListener("click", (e) => {
         switch (e.target.id) {
-            case "change-grid":
-                let squareNumber = +prompt("how many squares on each side? MAX = 100", 32);
-                console.log(squareNumber);
-                console.log(typeof squareNumber);
+            case "grid-toggle":
+                if (gridToggle) {
+                    square.style.borderStyle = "none";
+                    gridToggle = false;
+                    break;
+                }
+                if (!gridToggle){
+                    square.style.borderStyle = "solid";
+                    gridToggle = true;
+                    break;
+                }
 
-                if (squareNumber > 100) {
-                    alert ("Please enter a positive number under 100");
-                }
-                else if (squareNumber === null || squareNumber <= 0 || squareNumber != squareNumber){
-                    alert ("Please enter a positive number under 100");
-                    mainDiv.removeChild(gridContainer);
-                    createGrid(32);
-                }
-                else if (1 <= squareNumber <= 100) {
-                    mainDiv.removeChild(gridContainer);
-                    createGrid(squareNumber);
-                }
+            case "clear":
+                square.style.backgroundColor = "white";
                 break;
+        
         }
+
     })
 
     
