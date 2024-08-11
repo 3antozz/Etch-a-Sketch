@@ -8,6 +8,7 @@ const mainDiv = document.querySelector(".main");
 let gridContainer;
 let rngToggle;
 let instructionsTxt;
+let eraserToggle;
 // let rngColors = false;
 
 
@@ -41,11 +42,17 @@ function handleMouseEvents(element) {
     let isMouseDown;
 
     element.addEventListener("click", (e) => {
-        if (!rngToggle) {
+        if (!rngToggle && !eraserToggle) {
             element.style.backgroundColor = "red";
         }
-        if (rngToggle){
+        else if (rngToggle){
             element.style.backgroundColor = getRandomColor();
+        }
+        if (!eraserToggle && !eraserToggle) {
+            element.style.backgroundColor = "red";
+        }
+        else if (eraserToggle) {
+            element.style.backgroundColor = "white";
         }
     })
 
@@ -58,11 +65,17 @@ function handleMouseEvents(element) {
     })
         element.addEventListener("mouseenter", (e) => {
             if (isMouseDown) {
-                if (!rngToggle) {
+                if (!rngToggle && !eraserToggle) {
                     element.style.backgroundColor = "red";
                 }
-                if (rngToggle){
+                else if (rngToggle){
                     element.style.backgroundColor = getRandomColor();
+                }
+                if (!eraserToggle && !eraserToggle) {
+                    element.style.backgroundColor = "red";
+                }
+                else if (eraserToggle) {
+                    element.style.backgroundColor = "white";
                 }
 
             }
@@ -93,6 +106,7 @@ function changeGrid () {
 function buttonsEventsHandler (square) {
     let gridToggle = true;
     let rngColors = false;
+    let eraserColor = false;
     buttonsWrapper.addEventListener("click", (e) => {
         switch (e.target.id) {
             case "grid-toggle":
@@ -111,6 +125,8 @@ function buttonsEventsHandler (square) {
                 if (!rngColors) {
                     rngColors = true;
                     rngToggle = true;
+                    eraserColor = false;
+                    eraserToggle = false;
                     break;
                 }
                 if (rngColors) {
@@ -118,6 +134,22 @@ function buttonsEventsHandler (square) {
                     rngToggle = false;
                     break;
                 }
+            
+            case "eraser":
+                console.log(eraserColor);
+                if (!eraserColor) {
+                    eraserColor = true;
+                    eraserToggle = true;
+                    break;
+                }
+                if (eraserColor) {
+                    eraserColor = false;
+                    eraserToggle = false;
+                    rngColors = false;
+                    rngToggle = false;
+                    break;
+                }
+
 
             case "clear":
                 square.style.backgroundColor = "white";
