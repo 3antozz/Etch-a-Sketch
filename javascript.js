@@ -6,9 +6,10 @@ const clearGrid = document.querySelector("#clear");
 const buttonsWrapper = document.querySelector(".buttons-wrapper");
 const mainDiv = document.querySelector(".main");
 let gridContainer;
-let rngToggle;
+let rngToggle = false;
+let redToggle = true;
+let eraserToggle = false;
 let instructionsTxt;
-let eraserToggle;
 // let rngColors = false;
 
 
@@ -42,14 +43,11 @@ function handleMouseEvents(element) {
     let isMouseDown;
 
     element.addEventListener("click", (e) => {
-        if (!rngToggle && !eraserToggle) {
+        if (redToggle) {
             element.style.backgroundColor = "red";
         }
         else if (rngToggle){
             element.style.backgroundColor = getRandomColor();
-        }
-        if (!eraserToggle && !eraserToggle) {
-            element.style.backgroundColor = "red";
         }
         else if (eraserToggle) {
             element.style.backgroundColor = "white";
@@ -65,14 +63,11 @@ function handleMouseEvents(element) {
     })
         element.addEventListener("mouseenter", (e) => {
             if (isMouseDown) {
-                if (!rngToggle && !eraserToggle) {
+                if (redToggle) {
                     element.style.backgroundColor = "red";
                 }
                 else if (rngToggle){
                     element.style.backgroundColor = getRandomColor();
-                }
-                if (!eraserToggle && !eraserToggle) {
-                    element.style.backgroundColor = "red";
                 }
                 else if (eraserToggle) {
                     element.style.backgroundColor = "white";
@@ -105,8 +100,6 @@ function changeGrid () {
 
 function buttonsEventsHandler (square) {
     let gridToggle = true;
-    let rngColors = false;
-    let eraserColor = false;
     buttonsWrapper.addEventListener("click", (e) => {
         switch (e.target.id) {
             case "grid-toggle":
@@ -121,34 +114,23 @@ function buttonsEventsHandler (square) {
                     break;
                 }
 
+            case "red-color":
+                redToggle = true;
+                rngToggle = false;
+                eraserToggle = false;
+                break;
+
             case "rng-colors":
-                if (!rngColors) {
-                    rngColors = true;
-                    rngToggle = true;
-                    eraserColor = false;
-                    eraserToggle = false;
-                    break;
-                }
-                if (rngColors) {
-                    rngColors = false;
-                    rngToggle = false;
-                    break;
-                }
+                rngToggle = true;
+                redToggle = false;
+                eraserToggle = false;
+                break;
             
             case "eraser":
-                console.log(eraserColor);
-                if (!eraserColor) {
-                    eraserColor = true;
-                    eraserToggle = true;
-                    break;
-                }
-                if (eraserColor) {
-                    eraserColor = false;
-                    eraserToggle = false;
-                    rngColors = false;
-                    rngToggle = false;
-                    break;
-                }
+                eraserToggle = true;
+                redToggle = false;
+                rngToggle = false;
+                break;
 
 
             case "clear":
