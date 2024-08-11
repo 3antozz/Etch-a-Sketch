@@ -20,7 +20,7 @@ body {
     row-gap: 15px;
 }
 
- .grid-container { 
+ /* .grid-container { 
     border-style: solid;
     border-color: black;
     border-width: 2px;
@@ -32,11 +32,13 @@ body {
     height: 500px;
     max-height: 500px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; */
+
+
     /* margin-left: -10%; */
     /* margin-right: 21%; */
     /* box-sizing: border-box; */
-} 
+/* }  */
 
 .header {
     line-height: 1;
