@@ -6,12 +6,18 @@ const clearGrid = document.querySelector("#clear");
 const buttonsWrapper = document.querySelector(".buttons-wrapper");
 const mainDiv = document.querySelector(".main");
 let gridContainer;
+let rngToggle;
+let instructionsTxt;
+// let rngColors = false;
 
 
 
 createGrid(40);
 changeGrid();
 function createGrid (number) {
+    instructionsTxt = document.createElement("div");
+    instructionsTxt.textContent = "Click & Drag \n to Draw!";
+    instructionsTxt.classList.add("instructions");
     gridContainer = document.createElement("div");
     gridContainer.classList.add("grid-container");
     let rowDiv;
@@ -22,6 +28,7 @@ function createGrid (number) {
             let newSquare = document.createElement("span");
             newSquare.classList.add("one-square");
             mainDiv.appendChild(gridContainer);
+            mainDiv.appendChild(instructionsTxt);
             rowDiv.appendChild(newSquare);
             gridContainer.appendChild(rowDiv);
             handleMouseEvents(newSquare);
@@ -34,7 +41,12 @@ function handleMouseEvents(element) {
     let isMouseDown;
 
     element.addEventListener("click", (e) => {
-        element.style.backgroundColor = "red";
+        if (!rngToggle) {
+            element.style.backgroundColor = "red";
+        }
+        if (rngToggle){
+            element.style.backgroundColor = getRandomColor();
+        }
     })
 
 
@@ -46,7 +58,13 @@ function handleMouseEvents(element) {
     })
         element.addEventListener("mouseenter", (e) => {
             if (isMouseDown) {
-                element.style.backgroundColor = "red";
+                if (!rngToggle) {
+                    element.style.backgroundColor = "red";
+                }
+                if (rngToggle){
+                    element.style.backgroundColor = getRandomColor();
+                }
+
             }
     })
 }
@@ -59,10 +77,12 @@ function changeGrid () {
         }
         else if (squareNumber === null || squareNumber <= 0 || squareNumber != squareNumber){
             alert ("Please enter a positive number under 80");
+            mainDiv.removeChild(instructionsTxt);
             mainDiv.removeChild(gridContainer);
             createGrid(32);
         }
         else if (1 <= squareNumber <= 80) {
+            mainDiv.removeChild(instructionsTxt);
             mainDiv.removeChild(gridContainer);
             createGrid(squareNumber);
         }
@@ -72,6 +92,7 @@ function changeGrid () {
 
 function buttonsEventsHandler (square) {
     let gridToggle = true;
+    let rngColors = false;
     buttonsWrapper.addEventListener("click", (e) => {
         switch (e.target.id) {
             case "grid-toggle":
@@ -86,16 +107,31 @@ function buttonsEventsHandler (square) {
                     break;
                 }
 
+            case "rng-colors":
+                if (!rngColors) {
+                    rngColors = true;
+                    rngToggle = true;
+                    break;
+                }
+                if (rngColors) {
+                    rngColors = false;
+                    rngToggle = false;
+                    break;
+                }
+
             case "clear":
                 square.style.backgroundColor = "white";
                 break;
-        
         }
-
     })
-
-    
-
+    }
+    function getRandomColor() {
+        let letters = "0123456789ABCDEF";
+        let color = "#";
+        for (let i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
 }
 
 // mousenter

@@ -1,6 +1,6 @@
 body {
     box-sizing: border-box;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: "Bungee", sans-serif;
     background-color: beige;
     margin: 0;
     padding: 5px 0;
@@ -15,7 +15,7 @@ body {
     user-select: none;
     flex-wrap: wrap;
     justify-content: center;
-    /* align-items: center; */
+    align-items: center;
     column-gap: 100px;
     row-gap: 15px;
 }
@@ -66,7 +66,6 @@ body {
     color: purple;
     font-size: 24px;
     margin: 0 auto;
-    font-weight: bold;
 }
 
 .buttons-wrapper {
@@ -77,7 +76,8 @@ body {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    gap: 20px;
+    justify-content: center;
+    gap: 50px;
     flex: 0 1 auto;
     /* margin-left: -18%; */
 }
@@ -86,14 +86,20 @@ button {
     background-color: orange;
     font-size: 18px;
     padding: 10px 50px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
     max-width: 250px;
     border-radius: 10px;
 }
 
 #change-grid {
-    margin-bottom: 50px;
+    /* margin-bottom: 100px; */
     background-color: orangered;
+}
+
+.instructions {
+    font-size: 38px;
+    font-weight: 100;
+    white-space: pre-line;
+    text-align: center;
 }
 
