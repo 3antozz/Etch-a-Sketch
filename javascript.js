@@ -9,19 +9,18 @@ let gridContainer;
 
 
 
-createGrid(64);
+createGrid(40);
 changeGrid();
 function createGrid (number) {
     gridContainer = document.createElement("div");
-    gridContainer.setAttribute("style", "border-style: solid; border-color: black; border-width: 2px; user-select: none; background-color: white; padding: 1px; width: 500px; max-width: 500px; height: 500px; max-height: 500px; display: flex; flex-direction: column")
+    gridContainer.classList.add("grid-container");
     let rowDiv;
     for (let n=1; n <= number; n++) {
         rowDiv = document.createElement("div");
-        rowDiv.setAttribute("style", "display: flex; flex: 1 1 auto; justify-content: center; box-sizing: border-box");
+        rowDiv.classList.add("one-row");
         for (let i=1; i <= number; i++){
             let newSquare = document.createElement("span");
-            newSquare.setAttribute("style", "box-sizing: border-box; display: flex; flex: 1 1 auto; border-color: black; border-style: solid; border-width: 0.1px; border-color: #eeeeee");
-            newSquare.classList.add("square");
+            newSquare.classList.add("one-square");
             mainDiv.appendChild(gridContainer);
             rowDiv.appendChild(newSquare);
             gridContainer.appendChild(rowDiv);
