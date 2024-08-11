@@ -3,7 +3,7 @@ const body = document.querySelector("body");
 
 
 
-createGrid(10);
+createGrid(30);
 function createGrid (number) {
     let rowDiv;
     for (let n=1; n <= number; n++) {
@@ -11,7 +11,7 @@ function createGrid (number) {
         rowDiv.setAttribute("style", "display: flex; flex: 1 1 auto; justify-content: center; box-sizing: border-box");
         for (let i=1; i <= number; i++){
             let newSquare = document.createElement("span");
-            newSquare.setAttribute("style", "box-sizing: border-box; display: flex; flex: 1 1 auto; border-color: black; border-style: solid; border-width: 0.5px");
+            newSquare.setAttribute("style", "box-sizing: border-box; display: flex; flex: 1 1 auto; border-color: black; border-style: solid; border-width: 0.1px; border-color: #eeeeee");
             rowDiv.appendChild(newSquare);
             gridContainer.appendChild(rowDiv);
             handleMouseEvents(newSquare);
@@ -39,12 +39,7 @@ function handleMouseEvents(element) {
             if (isMouseDown) {
                 element.style.backgroundColor = "red";
             }
-
     })
-
-
-
-
 }
 
 // mousenter

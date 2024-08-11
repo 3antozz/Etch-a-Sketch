@@ -1,9 +1,9 @@
 body {
+    box-sizing: border-box;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: beige;
     margin: 0;
-    padding: 0;
-    align-content: center;
+    padding: 5px 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -13,21 +13,29 @@ body {
 .main {
     display: flex;
     user-select: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* align-items: center; */
+    column-gap: 100px;
+    row-gap: 15px;
 }
 
  .grid-container { 
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
     user-select: none;
     background-color: white;
-    margin: 0;
-    padding: 0;
+    padding: 1px;
     width: 500px;
     max-width: 500px;
     height: 500px;
     max-height: 500px;
     display: flex;
     flex-direction: column;
-    box-sizing: border-box;
-    margin: 0 auto;
+    /* margin-left: -10%; */
+    /* margin-right: 21%; */
+    /* box-sizing: border-box; */
 } 
 
 .header {
@@ -40,8 +48,37 @@ body {
 }
 
 .footer {
+    padding-bottom: 5px;
     color: purple;
     font-size: 24px;
     margin: 0 auto;
     font-weight: bold;
+}
+
+.buttons-wrapper {
+    /* position: absolute; */
+    /* left: 15%; */
+    /* top: 50%; */
+    /* transform: translateY(-50%); */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 20px;
+    flex: 0 1 auto;
+    /* margin-left: -18%; */
+}
+
+button {
+    background-color: orange;
+    font-size: 18px;
+    padding: 10px 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    max-width: 250px;
+    border-radius: 10px;
+}
+
+#change-grid {
+    margin-bottom: 50px;
+    background-color: orangered;
 }
