@@ -63,10 +63,10 @@ function handleMouseEvents(element) {
 
 
     document.addEventListener("mousedown", (e) => {
+        clearButton.classList.remove("selected");
         isMouseDown = true;    
     })
         document.addEventListener("mouseup", (e) => {
-            clearButton.classList.remove("selected");
             isMouseDown = false;
     })
         element.addEventListener("mouseenter", (e) => {
@@ -93,9 +93,6 @@ function changeGrid () {
         }
         else if (squareNumber === null || squareNumber <= 0 || squareNumber != squareNumber){
             alert ("Please enter a positive number under 80");
-            mainDiv.removeChild(instructionsTxt);
-            mainDiv.removeChild(gridContainer);
-            createGrid(32);
         }
         else if (1 <= squareNumber <= 80) {
             mainDiv.removeChild(instructionsTxt);
