@@ -11,19 +11,21 @@ body {
     
 }
 .main {
+    /* background-color: red; */
     display: flex;
+    max-width: 95vw;
     user-select: none;
     flex-wrap: wrap;
     justify-content: center;
     align-items: stretch;
-    column-gap: 100px;
+    column-gap: 70px;
     row-gap: 15px;
 }
 
 .grid-container {
-    border-style: solid; 
+    /* border-style: solid; 
     border-color: black; 
-    border-width: 2px; 
+    border-width: 2px;  */
     user-select: none; 
     background-color: white; 
     padding: 0px; 
@@ -32,7 +34,9 @@ body {
     height: 500px; 
     max-height: 500px; 
     display: flex; 
-    flex-direction: column
+    flex-direction: column;
+    box-shadow: 6px 6px 7px 4px grey;
+    /* margin-left: 5%; */
 }
 
 .one-row {
@@ -79,11 +83,11 @@ body {
     justify-content: center;
     gap: 20px;
     flex: 0 1 auto;
-    /* margin-left: -18%; */
+    margin-left: 9%;
 }
 
 button {
-    background-color: orange;
+    background-color: transparent;
     font-size: 18px;
     padding: 10px 50px;
     font-weight: bold;
@@ -91,30 +95,30 @@ button {
     border-radius: 10px;
 }
 
-#change-grid {
-    /* margin-bottom: 100px; */
-    background-color: cyan;
-}
+ /* #change-grid {
+     margin-bottom: 100px; 
+     background-color: cyan; 
+ }
 
-#grid-toggle {
+ #grid-toggle {
     background-color: cyan;
 }
 
 #rng-colors {
     background-color: rgb(203, 49, 203);
-}
+} */
 
-#red-color {
-    background-color: red;
-}
+/* #red-color {
+    margin-top: auto;
+} */
 
-#eraser {
+/* #eraser {
     background-color: beige;
 }
 
 #clear {
     background-color: white;
-}
+}  */
 
 
 
@@ -127,5 +131,20 @@ button {
     align-self: center;
 }
 
+.selected {
+    background-color: purple;
+    color: white;
+
+}
+
+.grid-selected {
+    background-color: cyan;
+}
+
+
+#modes {
+    font-size: 25px;
+    margin-top: auto;
+}
 
 

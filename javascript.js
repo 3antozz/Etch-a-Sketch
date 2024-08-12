@@ -5,6 +5,13 @@ const gridToggle = document.querySelector("#grid-toggle");
 const clearGrid = document.querySelector("#clear");
 const buttonsWrapper = document.querySelector(".buttons-wrapper");
 const mainDiv = document.querySelector(".main");
+const redButton = document.querySelector("#red-color");
+const gridToggleButton = document.querySelector("#grid-toggle");
+const rngToggleButton = document.querySelector("#rng-colors");
+const eraserButton = document.querySelector("#eraser");
+const clearButton = document.querySelector("#clear");
+gridToggleButton.classList.add("grid-selected");
+redButton.classList.add("selected");
 let gridContainer;
 let rngToggle = false;
 let redToggle = true;
@@ -59,7 +66,8 @@ function handleMouseEvents(element) {
         isMouseDown = true;    
     })
         document.addEventListener("mouseup", (e) => {
-        isMouseDown = false;
+            clearButton.classList.remove("selected");
+            isMouseDown = false;
     })
         element.addEventListener("mouseenter", (e) => {
             if (isMouseDown) {
@@ -106,11 +114,13 @@ function buttonsEventsHandler (square) {
                 if (gridToggle) {
                     square.style.borderStyle = "none";
                     gridToggle = false;
+                    gridToggleButton.classList.remove("grid-selected");
                     break;
                 }
                 if (!gridToggle){
                     square.style.borderStyle = "solid";
                     gridToggle = true;
+                    gridToggleButton.classList.add("grid-selected");
                     break;
                 }
 
@@ -118,23 +128,36 @@ function buttonsEventsHandler (square) {
                 redToggle = true;
                 rngToggle = false;
                 eraserToggle = false;
+                redButton.classList.add("selected");
+                rngToggleButton.classList.remove("selected");
+                eraserButton.classList.remove("selected");
+                clearButton.classList.remove("selected");
                 break;
 
             case "rng-colors":
                 rngToggle = true;
                 redToggle = false;
                 eraserToggle = false;
+                rngToggleButton.classList.add("selected");
+                redButton.classList.remove("selected");
+                eraserButton.classList.remove("selected");
+                clearButton.classList.remove("selected");
                 break;
             
             case "eraser":
                 eraserToggle = true;
                 redToggle = false;
                 rngToggle = false;
+                eraserButton.classList.add("selected");
+                redButton.classList.remove("selected");
+                rngToggleButton.classList.remove("selected");
+                clearButton.classList.remove("selected");
                 break;
 
 
             case "clear":
                 square.style.backgroundColor = "white";
+                clearButton.classList.add("selected");
                 break;
         }
     })
