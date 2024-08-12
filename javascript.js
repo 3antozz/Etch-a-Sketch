@@ -10,18 +10,20 @@ const gridToggleButton = document.querySelector("#grid-toggle");
 const rngToggleButton = document.querySelector("#rng-colors");
 const eraserButton = document.querySelector("#eraser");
 const clearButton = document.querySelector("#clear");
+const transparencyButton = document.querySelector("#transparent-toggle");
 gridToggleButton.classList.add("grid-selected");
 redButton.classList.add("selected");
 let gridContainer;
 let rngToggle = false;
 let redToggle = true;
 let eraserToggle = false;
+let opacityToggle = false;
 let instructionsTxt;
 // let rngColors = false;
 
 
 
-createGrid(40);
+createGrid(30);
 changeGrid();
 function createGrid (number) {
     instructionsTxt = document.createElement("div");
@@ -51,13 +53,31 @@ function handleMouseEvents(element) {
 
     element.addEventListener("click", (e) => {
         if (redToggle) {
+            if (opacityToggle) {
+                let squareOpacity = +element.style.opacity;
+                squareOpacity += 0.1;
+                element.style.opacity = squareOpacity;
+            }
+            if (!opacityToggle) {
+                element.style.opacity = "";
+            }
             element.style.backgroundColor = "red";
         }
         else if (rngToggle){
+            if (opacityToggle) {
+                // element.style.opacity = 0;
+                let squareOpacity = +element.style.opacity;
+                squareOpacity += 0.1;
+                element.style.opacity = squareOpacity;
+            }
+            if (!opacityToggle) {
+                element.style.opacity = "";
+            }
             element.style.backgroundColor = getRandomColor();
         }
         else if (eraserToggle) {
             element.style.backgroundColor = "white";
+            element.style.opacity = "";
         }
     })
 
@@ -72,13 +92,30 @@ function handleMouseEvents(element) {
         element.addEventListener("mouseenter", (e) => {
             if (isMouseDown) {
                 if (redToggle) {
+                    if (opacityToggle) {
+                        let squareOpacity = +element.style.opacity;
+                        squareOpacity += 0.1;
+                        element.style.opacity = squareOpacity;
+                    }
+                    if (!opacityToggle) {
+                        element.style.opacity = "";
+                    }
                     element.style.backgroundColor = "red";
                 }
                 else if (rngToggle){
+                    if (opacityToggle) {
+                        let squareOpacity = +element.style.opacity;
+                        squareOpacity += 0.1;
+                        element.style.opacity = squareOpacity;
+                    }
+                    if (!opacityToggle) {
+                        element.style.opacity = "";
+                    }
                     element.style.backgroundColor = getRandomColor();
                 }
                 else if (eraserToggle) {
                     element.style.backgroundColor = "white";
+                    element.style.opacity = "";
                 }
 
             }
@@ -104,6 +141,7 @@ function changeGrid () {
 
 
 function buttonsEventsHandler (square) {
+    let transparencyToggle = false;
     let gridToggle = true;
     buttonsWrapper.addEventListener("click", (e) => {
         switch (e.target.id) {
@@ -120,6 +158,22 @@ function buttonsEventsHandler (square) {
                     gridToggleButton.classList.add("grid-selected");
                     break;
                 }
+
+            case "transparent-toggle":
+                if (transparencyToggle) {
+                    transparencyToggle = false;
+                    transparencyButton.classList.remove("grid-selected");
+                    opacityToggle = false;
+                    break;
+                }
+
+                if (!transparencyToggle) {
+                    transparencyToggle = true;
+                    transparencyButton.classList.add("grid-selected");
+                    opacityToggle = true;
+                    break;
+                }
+
 
             case "red-color":
                 redToggle = true;
@@ -153,6 +207,7 @@ function buttonsEventsHandler (square) {
 
 
             case "clear":
+                square.style.opacity = "";
                 square.style.backgroundColor = "white";
                 clearButton.classList.add("selected");
                 break;
@@ -169,3 +224,6 @@ function buttonsEventsHandler (square) {
 }
 
 // mousenter
+            // let squareOpacity = +element.style.opacity;
+            // squareOpacity += 0.1;
+            // console.log(element.style.opacity = squareOpacity);

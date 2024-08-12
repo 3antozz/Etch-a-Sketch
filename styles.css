@@ -53,7 +53,7 @@ body {
     border-color: black; 
     border-style: solid; 
     border-width: 0.1px; 
-    border-color: #eeeeee
+    border-color: #eeeeee;
 }
 
 .header {
@@ -91,7 +91,7 @@ button {
     font-size: 18px;
     padding: 10px 50px;
     font-weight: bold;
-    max-width: 250px;
+    max-width: 300px;
     border-radius: 10px;
 }
 
@@ -145,6 +145,7 @@ button {
 #modes {
     font-size: 25px;
     margin-top: auto;
+    text-align: center;
 }
 
 
