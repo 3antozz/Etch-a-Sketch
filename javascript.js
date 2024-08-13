@@ -11,6 +11,7 @@ const rngToggleButton = document.querySelector("#rng-colors");
 const eraserButton = document.querySelector("#eraser");
 const clearButton = document.querySelector("#clear");
 const transparencyButton = document.querySelector("#transparent-toggle");
+const colorPicker = document.querySelector("#color-picker");
 gridToggleButton.classList.add("grid-selected");
 redButton.classList.add("selected");
 let gridContainer;
@@ -61,7 +62,7 @@ function handleMouseEvents(element) {
             if (!opacityToggle) {
                 element.style.opacity = "";
             }
-            element.style.backgroundColor = "red";
+            element.style.backgroundColor = colorPicker.value;
         }
         else if (rngToggle){
             if (opacityToggle) {
@@ -100,7 +101,7 @@ function handleMouseEvents(element) {
                     if (!opacityToggle) {
                         element.style.opacity = "";
                     }
-                    element.style.backgroundColor = "red";
+                    element.style.backgroundColor = colorPicker.value;
                 }
                 else if (rngToggle){
                     if (opacityToggle) {
