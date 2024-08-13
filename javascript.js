@@ -125,7 +125,7 @@ function handleMouseEvents(element) {
 
 function changeGrid () {
     changeGridButton.addEventListener("click", (e) => {
-        let squareNumber = +prompt("how many squares on each side? MAX = 80");
+        let squareNumber = +prompt("How many squares on each side? MAX = 80");
         if (squareNumber > 80) {
             alert ("Please enter a positive number under 80");
         }

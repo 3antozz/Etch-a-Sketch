@@ -12,9 +12,7 @@ body {
     
 }
 .main {
-    /* background-color: red; */
     display: flex;
-    max-width: 95vw;
     user-select: none;
     flex-wrap: wrap;
     justify-content: center;
@@ -84,7 +82,6 @@ body {
     justify-content: center;
     gap: 20px;
     flex: 0 1 auto;
-    margin-left: 6%;
 }
 
 button {
@@ -139,14 +136,12 @@ button {
 }
 
 .grid-selected {
-    background-color: cyan;
+    background-color: #8eff72;
 }
 
 
 #modes {
     font-size: 20px;
-    margin-top: auto;
-    text-align: center;
 }
 
 
@@ -157,11 +152,11 @@ button {
 }
 
  #color-picker {
-    width: 50px;
-    height: 30px;
+    width: 60px;
+    height: 40px;
     box-sizing: border-box;
     padding: 0;
     border: 0;
-    border-radius: 50%;
+    border-radius: 20px;
 } 
 
