@@ -1,4 +1,5 @@
 body {
+    user-select: none;
     box-sizing: border-box;
     font-family: "Bungee", sans-serif;
     background-color: beige;
