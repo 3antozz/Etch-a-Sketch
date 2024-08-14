@@ -92,6 +92,23 @@ button {
     max-width: 300px;
     border-radius: 10px;
 }
+    #change-grid:hover {background-color: #8eff72}
+    #grid-toggle:hover {background-color: #8eff72}
+    #transparent-toggle:hover {background-color: #8eff72}
+
+
+
+    #red-color:hover {background-color: rgb(213, 8, 213)}
+    #rng-colors:hover {background-color: rgb(213, 8, 213)}
+    #eraser:hover {background-color: rgb(213, 8, 213)}
+    #clear:hover {background-color: rgb(213, 8, 213)}
+
+
+    .one-square:hover {
+        border-style: solid;
+        border-color: black;
+
+    }
 
  /* #change-grid {
      margin-bottom: 100px; 
