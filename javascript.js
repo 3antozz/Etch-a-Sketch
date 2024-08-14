@@ -261,9 +261,9 @@ function buttonsEventsHandler (square) {
         return color;
 }
     function storeRecentColors() {
-        let box1Hex = "#ff0000";
-        let box2Hex = "#5d00ff";
-        let box3Hex = "#00ff2f";
+        let box1Hex = "#fa6666";
+        let box2Hex = "#995fff";
+        let box3Hex = "#6af484";
         colorBox1.style.backgroundColor = box1Hex;
         colorBox2.style.backgroundColor = box2Hex;
         colorBox3.style.backgroundColor = box3Hex;
