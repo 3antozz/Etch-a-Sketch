@@ -12,6 +12,10 @@ const eraserButton = document.querySelector("#eraser");
 const clearButton = document.querySelector("#clear");
 const transparencyButton = document.querySelector("#transparent-toggle");
 const colorPicker = document.querySelector("#color-picker");
+const colorBoxWrapper = document.querySelector(".color-box-wrapper");
+const colorBox1 = document.querySelector("#box1");
+const colorBox2 = document.querySelector("#box2");
+const colorBox3 = document.querySelector("#box3");
 gridToggleButton.classList.add("grid-selected");
 redButton.classList.add("selected");
 let gridContainer;
@@ -26,6 +30,7 @@ let instructionsTxt;
 
 createGrid(30);
 changeGrid();
+storeRecentColors();
 function createGrid (number) {
     instructionsTxt = document.createElement("div");
     instructionsTxt.textContent = "Click & Drag \n to Draw!";
@@ -255,6 +260,49 @@ function buttonsEventsHandler (square) {
         }
         return color;
 }
+    function storeRecentColors() {
+        let box1Hex = "#ff0000";
+        let box2Hex = "#5d00ff";
+        let box3Hex = "#00ff2f";
+        colorBox1.style.backgroundColor = box1Hex;
+        colorBox2.style.backgroundColor = box2Hex;
+        colorBox3.style.backgroundColor = box3Hex;
+        colorPicker.addEventListener("change", () => {
+            console.log(colorBox3.style.backgroundColor = colorBox2.style.backgroundColor);
+            box3Hex = box2Hex;
+            console.log(colorBox2.style.backgroundColor = colorBox1.style.backgroundColor);
+            box2Hex = box1Hex;
+            box1.style.backgroundColor = colorPicker.value;
+            box1Hex = colorPicker.value;
+        })
+
+        colorBoxWrapper.addEventListener("click", (element) => {
+            switch (element.target.id) {
+
+                case "box1":
+                    colorPicker.value = box1Hex;
+                    break;
+                case "box2":
+                    colorPicker.value = box2Hex;
+                    break;
+                case "box3":
+                    colorPicker.value = box3Hex;
+                    break;
+            } 
+        })
+
+
+    }
+
+
+
+
+
+
+
+
+
+
 
 // mousenter
             // let squareOpacity = +element.style.opacity;

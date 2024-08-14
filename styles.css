@@ -98,16 +98,24 @@ button {
 
 
 
-    #red-color:hover {background-color: rgb(213, 8, 213)}
-    #rng-colors:hover {background-color: rgb(213, 8, 213)}
-    #eraser:hover {background-color: rgb(213, 8, 213)}
-    #clear:hover {background-color: rgb(213, 8, 213)}
+    #red-color:hover {background-color: rgb(241, 172, 241)}
+    #rng-colors:hover {background-color: rgb(241, 172, 241)}
+    #eraser:hover {background-color: rgb(241, 172, 241)}
+    #clear:hover {background-color: rgb(241, 172, 241)}
 
 
     .one-square:hover {
-        border-style: solid;
-        border-color: black;
+        box-shadow: inset 0 0 1px 1px black;
+    }
 
+    #color-picker:hover {
+        box-shadow: 0 0 1px 1px black;
+        padding: 0;
+        border: 0;
+    }
+
+    .color-box:hover {
+        box-shadow: 0 0 1px 1px black;
     }
 
  /* #change-grid {
@@ -147,8 +155,7 @@ button {
 }
 
 .selected {
-    background-color: purple;
-    color: white;
+    background-color: rgb(241, 172, 241);
 
 }
 
@@ -174,6 +181,38 @@ button {
     box-sizing: border-box;
     padding: 0;
     border: 0;
-    border-radius: 20px;
 } 
+
+
+.color-box {
+    width: 25px;
+    height: 25px;
+    border: 1px solid #000;
+    /* background-color: #ffffff; */
+}
+
+#box1 {
+    background-color: #ff0000;
+}
+
+#box2 {
+    background-color: #5d00ff;
+}
+
+#box3 {
+    background-color: #00ff2f;
+}
+
+.color-box-wrapper {
+    display: flex;
+    gap: 4px;
+}
+
+
+.color-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
 
