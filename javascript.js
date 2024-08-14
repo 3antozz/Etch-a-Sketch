@@ -52,6 +52,38 @@ function createGrid (number) {
 function handleMouseEvents(element) {
     let isMouseDown;
 
+    element.addEventListener("mousedown", (e) => {
+        if (redToggle) {
+            if (opacityToggle) {
+                let squareOpacity = +element.style.opacity;
+                squareOpacity += 0.1;
+                element.style.opacity = squareOpacity;
+            }
+            if (!opacityToggle) {
+                element.style.opacity = "";
+            }
+            element.style.backgroundColor = colorPicker.value;
+        }
+        else if (rngToggle){
+            if (opacityToggle) {
+                // element.style.opacity = 0;
+                let squareOpacity = +element.style.opacity;
+                squareOpacity += 0.1;
+                element.style.opacity = squareOpacity;
+            }
+            if (!opacityToggle) {
+                element.style.opacity = "";
+            }
+            element.style.backgroundColor = getRandomColor();
+        }
+        else if (eraserToggle) {
+            element.style.backgroundColor = "white";
+            element.style.opacity = "";
+        }
+    })
+
+
+
     element.addEventListener("click", (e) => {
         if (redToggle) {
             if (opacityToggle) {
